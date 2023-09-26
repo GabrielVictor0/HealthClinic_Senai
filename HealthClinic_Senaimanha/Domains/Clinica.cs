@@ -25,11 +25,11 @@ namespace HealthClinic_Senaimanha.Domains
         [Required(ErrorMessage ="CNPJ obrigatorio")]
         public string? CNPJ { get; set; }
 
-        [Column(TypeName = "DATE")]
+        [Column(TypeName = "SMALLDATETIME")]
         [Required(ErrorMessage ="Horario de abertura obrigatorio")]
         public DateTime HorarioAbertura { get; set; }
 
-        [Column(TypeName ="DATE")]
+        [Column(TypeName ="SMALLDATETIME")]
         [Required(ErrorMessage ="Horario de fechamento obrigatorio")]
         public DateTime HorarioFechamento { get; set; }
 

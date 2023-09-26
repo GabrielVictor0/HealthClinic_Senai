@@ -12,6 +12,9 @@ namespace HealthClinic_Senaimanha.Domains
         [Column(TypeName ="VARCHAR(300)")]
         public string? Descricao { get; set; }
 
+        [Column(TypeName = "BIT")]
+        public bool Exibir {  get; set; }
+
         [Required(ErrorMessage ="Consulta é obrigatório")]
         public Guid IdConsulta { get; set; }
 
