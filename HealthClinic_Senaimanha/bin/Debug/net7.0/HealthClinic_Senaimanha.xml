@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HealthClinic_Senaimanha</name>
+    </assembly>
+    <members>
+        <member name="T:HealthClinic_Senaimanha.Migrations.Db">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

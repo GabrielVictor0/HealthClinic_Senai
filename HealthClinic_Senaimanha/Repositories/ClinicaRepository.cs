@@ -30,7 +30,7 @@ namespace HealthClinic_Senaimanha.Repositories
             }
 
             _healthClinicContext.Clinica.Update(clinicaBuscada!);
-
+            
             _healthClinicContext.SaveChanges();
         }
 

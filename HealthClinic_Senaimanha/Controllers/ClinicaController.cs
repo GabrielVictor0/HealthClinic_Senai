@@ -34,21 +34,23 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult Delete(Guid id)
+        [HttpPut]
+        public IActionResult Put(Guid id, Clinica clinica)
         {
             try
             {
-                _clinicaRepository.Deletar(id);
+                _clinicaRepository.Atualizar(id, clinica);
 
-                return StatusCode(204);
+                return Ok("Clinica atualizada");
             }
-            catch (Exception)
+            catch (Exception error)
             {
 
-                throw;
-            } 
+                return BadRequest(error.Message);
+            }
         }
+
+        
 
     }
 }

@@ -80,3 +80,5 @@ C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\obj\Debu
 C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\obj\Debug\net7.0\HealthClinic_Senaimanha.pdb
 C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\obj\Debug\net7.0\HealthClinic_Senaimanha.genruntimeconfig.cache
 C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\obj\Debug\net7.0\ref\HealthClinic_Senaimanha.dll
+C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\bin\Debug\net7.0\HealthClinic_Senaimanha.xml
+C:\Users\47349403801\Desktop\HealthClinic_Senai\HealthClinic_Senaimanha\obj\Debug\net7.0\HealthClinic_Senaimanha.xml
