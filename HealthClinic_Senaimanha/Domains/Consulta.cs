@@ -13,10 +13,10 @@ namespace HealthClinic_Senaimanha.Domains
         [Required(ErrorMessage = "Informe a data da consulta")]
         public DateTime DataConsulta { get; set; }
 
-        [NotMapped]
-        [Column(TypeName ="SMALLDATETIME")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
         [Required(ErrorMessage ="Informe o horario da consulta")]
-        public DateTime HorarioConsulta { get; set; }
+        public TimeSpan? HorarioConsulta { get; set; }
 
         [Required(ErrorMessage ="Informe o médico da consulta")]
         public Guid IdMedico {  get; set; }

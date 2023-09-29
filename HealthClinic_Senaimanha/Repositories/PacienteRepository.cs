@@ -15,7 +15,18 @@ namespace HealthClinic_Senaimanha.Repositories
 
         public void Atualizar(Guid id, Paciente paciente)
         {
-            throw new NotImplementedException();
+            Paciente pacienteBuscado = _healthClinicContext.Paciente.Find(id)!;
+
+            if(pacienteBuscado != null)
+            {
+                pacienteBuscado.Telefone = paciente.Telefone;
+
+                pacienteBuscado.Endereco = paciente.Endereco;
+            }
+
+            _healthClinicContext.Paciente.Update(pacienteBuscado!);
+
+            _healthClinicContext.SaveChanges();
         }
 
         public Paciente BuscarPorId(Guid id)
@@ -26,6 +37,17 @@ namespace HealthClinic_Senaimanha.Repositories
         public void Cadastrar(Paciente paciente)
         {
             _healthClinicContext.Paciente.Add(paciente);
+
+            _healthClinicContext.SaveChanges();
+        }
+
+        public void Deletar(Guid id)
+        {
+            Paciente pacienteBuscado = _healthClinicContext.Paciente.Find(id)!;
+
+            _healthClinicContext.Paciente.Remove(pacienteBuscado);
+
+            _healthClinicContext.SaveChanges();
         }
 
         public List<Paciente> ListarTodos()
