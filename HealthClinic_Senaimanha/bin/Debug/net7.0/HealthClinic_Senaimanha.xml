@@ -28,5 +28,17 @@
         <member name="M:HealthClinic_Senaimanha.Migrations.Db2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:HealthClinic_Senaimanha.Migrations.Db3">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:HealthClinic_Senaimanha.Migrations.Db3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

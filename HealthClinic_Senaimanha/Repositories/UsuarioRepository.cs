@@ -22,8 +22,6 @@ namespace HealthClinic_Senaimanha.Repositories
             {
                 usuarioBuscado.Email = usuario.Email;
 
-                usuarioBuscado.Senha = usuario.Senha;
-
                 usuarioBuscado.Nome = usuario.Nome;
             }
 

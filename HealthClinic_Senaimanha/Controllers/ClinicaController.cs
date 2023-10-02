@@ -25,7 +25,7 @@ namespace HealthClinic_Senaimanha.Controllers
             {
                 _clinicaRepository.Cadastrar(novaClinica);
 
-                return StatusCode(201);
+                return Ok("Clinica cadastrada!");
             }
             catch (Exception error)
             {
