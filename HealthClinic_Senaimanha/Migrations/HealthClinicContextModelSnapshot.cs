@@ -240,10 +240,6 @@ namespace HealthClinic_Senaimanha.Migrations
                     b.Property<Guid>("IdTipoDeUsuario")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
                     b.Property<string>("Senha")
                         .HasMaxLength(60)
                         .HasColumnType("CHAR(60)");

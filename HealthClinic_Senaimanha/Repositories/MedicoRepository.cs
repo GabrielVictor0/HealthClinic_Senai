@@ -31,7 +31,26 @@ namespace HealthClinic_Senaimanha.Repositories
 
         public Medico BuscarPorId(Guid id)
         {
-            return _healthClinicContext.Medico.FirstOrDefault(m => m.IdMedico == id)!;
+            return _healthClinicContext.Medico.Select(m => new Medico
+            {
+                IdMedico = m.IdMedico,
+                CRM = m.CRM,
+                Endereco = m.Endereco,
+                CPF = m.CPF,
+                Telefone = m.Telefone,
+                IdEspecialidade = m.IdEspecialidade,
+                IdUsuario = m.IdUsuario,
+                Usuario = new Usuario
+                {
+                    IdUsuario = m.Usuario!.IdUsuario,
+                    Email = m.Usuario!.Email
+                },
+                Especialidade = new Especialidade
+                {
+                    IdEspecialidade = m.Especialidade!.IdEspecialidade,
+                    Nome = m.Especialidade.Nome
+                }
+            }).FirstOrDefault(m => m.IdMedico == id)!;
         }
 
         public void Cadastrar(Medico medico)
@@ -52,7 +71,26 @@ namespace HealthClinic_Senaimanha.Repositories
 
         public List<Medico> ListarTodos()
         {
-            return _healthClinicContext.Medico.ToList();
+            return _healthClinicContext.Medico.Select(m => new Medico 
+            {
+                IdMedico = m.IdMedico,
+                CRM = m.CRM,
+                Endereco = m.Endereco,
+                CPF = m.CPF,
+                Telefone = m.Telefone,
+                IdEspecialidade = m.IdEspecialidade,
+                IdUsuario = m.IdUsuario,
+                Usuario = new Usuario
+                {
+                    IdUsuario = m.Usuario!.IdUsuario,
+                    Email = m.Usuario!.Email
+                },
+                Especialidade = new Especialidade
+                {
+                    IdEspecialidade = m.Especialidade!.IdEspecialidade,
+                    Nome = m.Especialidade.Nome
+                }
+            }).ToList();
         }
     }
 }

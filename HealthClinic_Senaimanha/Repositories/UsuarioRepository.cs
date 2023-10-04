@@ -21,8 +21,6 @@ namespace HealthClinic_Senaimanha.Repositories
             if(usuarioBuscado != null)
             {
                 usuarioBuscado.Email = usuario.Email;
-
-                usuarioBuscado.Nome = usuario.Nome;
             }
 
             _healthClinicContext.Usuario.Update(usuarioBuscado!);
@@ -39,7 +37,6 @@ namespace HealthClinic_Senaimanha.Repositories
                     IdUsuario = u.IdUsuario,
                     Email = u.Email,
                     Senha = u.Senha,
-                    Nome = u.Nome,
                     IdTipoDeUsuario = u.IdTipoDeUsuario,
                     TipoDeUsuario = new TipoDeUsuario
                     {
@@ -79,6 +76,22 @@ namespace HealthClinic_Senaimanha.Repositories
             _healthClinicContext.SaveChanges();
         }
 
+        public List<Usuario> ListarTodos()
+        {
+            return _healthClinicContext.Usuario.Select(u => new Usuario
+            {
+                IdUsuario = u.IdUsuario,
+                Email = u.Email,
+                Senha = u.Senha,
+                IdTipoDeUsuario = u.IdTipoDeUsuario,
+                TipoDeUsuario = new TipoDeUsuario
+                {
+                    IdTipoDeUsuario = u.TipoDeUsuario!.IdTipoDeUsuario,
+                    Nome = u.TipoDeUsuario.Nome
+                }
+            }).ToList();
+        }
+
         public Usuario LoginEmailSenha(string email, string senha)
         {
             try
@@ -88,7 +101,6 @@ namespace HealthClinic_Senaimanha.Repositories
                     IdUsuario = u.IdUsuario,
                     Email = u.Email,
                     Senha = u.Senha,
-                    Nome = u.Nome,
                     IdTipoDeUsuario = u.IdTipoDeUsuario,
                     TipoDeUsuario = new TipoDeUsuario
                     {

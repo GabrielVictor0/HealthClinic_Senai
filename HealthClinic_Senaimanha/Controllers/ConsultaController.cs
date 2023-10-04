@@ -1,6 +1,7 @@
 ﻿using HealthClinic_Senaimanha.Domains;
 using HealthClinic_Senaimanha.Interfaces;
 using HealthClinic_Senaimanha.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,13 @@ namespace HealthClinic_Senaimanha.Controllers
             _consultaRepository = new ConsultaRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastrar consulta
+        /// </summary>
+        /// <param name="consulta">Consulta que será cadastrada</param>
+        /// <returns></returns>
         [HttpPost]
+        [Authorize (Roles = "Administrador")]
         public IActionResult Post(Consulta consulta)
         {
             try
@@ -34,6 +41,10 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar todas consultas
+        /// </summary>
+        /// <returns>Lista com todas consultas</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,6 +59,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar consultas por ID
+        /// </summary>
+        /// <param name="id">ID da consulta buscada</param>
+        /// <returns>Consulta que contém o ID buscado</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -62,6 +78,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar consulta por ID
+        /// </summary>
+        /// <param name="id">ID da consulta que será atualizada</param>
+        /// <param name="consulta">Consulta atualizada</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Guid id, Consulta consulta)
         {
@@ -78,6 +100,11 @@ namespace HealthClinic_Senaimanha.Controllers
             } 
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar consulta por ID
+        /// </summary>
+        /// <param name="id">ID da consulta buscada</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {

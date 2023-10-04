@@ -1,6 +1,7 @@
 ﻿using HealthClinic_Senaimanha.Domains;
 using HealthClinic_Senaimanha.Interfaces;
 using HealthClinic_Senaimanha.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,13 @@ namespace HealthClinic_Senaimanha.Controllers
             _especialidadeRepository = new EspecialidadeRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastro de Especialidade
+        /// </summary>
+        /// <param name="especialidade">Especialidade que será cadastrada</param>
+        /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(Especialidade especialidade)
         {
             try
@@ -34,6 +41,10 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar todas especialidades
+        /// </summary>
+        /// <returns>Lista com todas especialidades</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,6 +59,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar especialidade por ID
+        /// </summary>
+        /// <param name="especialidade">Especialidade atualizada</param>
+        /// <param name="id">ID da especialidade que será atualizada</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Especialidade especialidade, Guid id)
         {
@@ -64,6 +81,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar especialidade por ID
+        /// </summary>
+        /// <param name="id">ID da especialidade que será deletada</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {

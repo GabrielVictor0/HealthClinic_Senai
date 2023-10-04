@@ -9,5 +9,7 @@ namespace HealthClinic_Senaimanha.Interfaces
         void Atualizar(Comentario comentario, Guid id);
 
         void Deletar(Guid id);
+
+        Comentario BuscarPorId(Guid id);
     }
 }

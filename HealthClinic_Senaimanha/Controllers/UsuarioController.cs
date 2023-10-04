@@ -18,6 +18,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastro de usuario
+        /// </summary>
+        /// <param name="usuario">Usuario que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -34,6 +39,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar usuário pelo ID
+        /// </summary>
+        /// <param name="id">ID do usuário que será deletado</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
@@ -50,6 +60,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar usuário pelo ID
+        /// </summary>
+        /// <param name="id">ID do usuário que será atualizado</param>
+        /// <param name="usuario">Usuário atualizado</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Guid id, Usuario usuario)
         {
@@ -66,12 +82,35 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Get(Guid id)
+        /// <summary>
+        /// EndPoint que aciona o método de listar usuário por ID
+        /// </summary>
+        /// <param name="id">ID do usuário que será listado</param>
+        /// <returns>Usuário que contém o ID buscado</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
         {
             try
             {
                 return Ok(_usuarioRepository.BuscarPorId(id));
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// EndPoint que aciona o método de listar todos usuários
+        /// </summary>
+        /// <returns>Lista com todos usuários</returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_usuarioRepository.ListarTodos());
             }
             catch (Exception error)
             {

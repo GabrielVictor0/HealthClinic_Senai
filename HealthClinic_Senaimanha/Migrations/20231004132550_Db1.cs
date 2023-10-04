@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HealthClinic_Senaimanha.Migrations
 {
     /// <inheritdoc />
-    public partial class Db : Migration
+    public partial class Db1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,8 +19,8 @@ namespace HealthClinic_Senaimanha.Migrations
                     Endereco = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     CNPJ = table.Column<string>(type: "CHAR(14)", nullable: false),
-                    HorarioAbertura = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false),
-                    HorarioFechamento = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false),
+                    HorarioAbertura = table.Column<TimeSpan>(type: "time", nullable: true),
+                    HorarioFechamento = table.Column<TimeSpan>(type: "time", nullable: true),
                     RazaoSocial = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Telefone = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
@@ -59,7 +59,6 @@ namespace HealthClinic_Senaimanha.Migrations
                 {
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(100)", nullable: false),
-                    Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Senha = table.Column<string>(type: "CHAR(60)", maxLength: 60, nullable: true),
                     IdTipoDeUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -138,6 +137,7 @@ namespace HealthClinic_Senaimanha.Migrations
                 {
                     IdConsulta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DataConsulta = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false),
+                    HorarioConsulta = table.Column<TimeSpan>(type: "time", nullable: false),
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -149,7 +149,7 @@ namespace HealthClinic_Senaimanha.Migrations
                         column: x => x.IdMedico,
                         principalTable: "Medico",
                         principalColumn: "IdMedico",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Consulta_Paciente_IdPaciente",
                         column: x => x.IdPaciente,

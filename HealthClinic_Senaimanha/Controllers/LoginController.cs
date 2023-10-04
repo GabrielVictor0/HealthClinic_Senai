@@ -22,6 +22,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de login, buscando email e senha do usuário
+        /// </summary>
+        /// <param name="usuario">Email e Senha do usuário</param>
+        /// <returns>Token do usuário</returns>
         [HttpPost]
         public IActionResult Post(LoginViewModel usuario)
         {
@@ -39,7 +44,6 @@ namespace HealthClinic_Senaimanha.Controllers
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
-                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(ClaimTypes.Role,usuarioBuscado.TipoDeUsuario!.Nome!)
                 };

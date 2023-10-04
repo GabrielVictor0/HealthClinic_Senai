@@ -41,5 +41,18 @@ namespace HealthClinic_Senaimanha.Repositories
             _healthClinicContext.SaveChanges();
         }
 
+        public void Deletar(Guid id)
+        {
+            Clinica clinicaBuscada = _healthClinicContext.Clinica.Find(id)!;
+
+            _healthClinicContext.Clinica.Remove(clinicaBuscada);
+
+            _healthClinicContext.SaveChanges();
+        }
+
+        public List<Clinica> ListarTodos()
+        {
+            return _healthClinicContext.Clinica.ToList();
+        }
     }
 }

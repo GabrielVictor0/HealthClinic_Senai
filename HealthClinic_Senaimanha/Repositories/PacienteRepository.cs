@@ -31,7 +31,20 @@ namespace HealthClinic_Senaimanha.Repositories
 
         public Paciente BuscarPorId(Guid id)
         {
-            return  _healthClinicContext.Paciente.FirstOrDefault(p => p.IdPaciente == id)!;
+            return  _healthClinicContext.Paciente.Select(p => new Paciente
+            {
+                IdPaciente = p.IdPaciente,
+                DataNascimento = p.DataNascimento,
+                Endereco = p.Endereco,
+                CPF = p.CPF,
+                Telefone = p.Telefone,
+                IdUsuario = p.IdUsuario,
+                Usuario = new Usuario
+                {
+                    IdUsuario = p.Usuario!.IdUsuario,
+                    Email = p.Usuario.Email
+                }
+            }).FirstOrDefault(p => p.IdPaciente == id)!;
         }
 
         public void Cadastrar(Paciente paciente)
@@ -52,7 +65,20 @@ namespace HealthClinic_Senaimanha.Repositories
 
         public List<Paciente> ListarTodos()
         {
-            return _healthClinicContext.Paciente.ToList();
+            return _healthClinicContext.Paciente.Select(p => new Paciente
+            {
+                IdPaciente = p.IdPaciente,
+                DataNascimento = p.DataNascimento,
+                Endereco = p.Endereco,
+                CPF = p.CPF,
+                Telefone = p.Telefone,
+                IdUsuario = p.IdUsuario,
+                Usuario = new Usuario
+                {
+                    IdUsuario = p.Usuario!.IdUsuario,
+                    Email = p.Usuario.Email
+                }
+            }).ToList();
         }
     }
 }

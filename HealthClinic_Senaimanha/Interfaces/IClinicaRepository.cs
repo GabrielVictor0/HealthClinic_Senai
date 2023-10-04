@@ -8,5 +8,9 @@ namespace HealthClinic_Senaimanha.Interfaces
         void Cadastrar(Clinica novaClinica);
 
         void Atualizar(Guid id, Clinica clinicaAtual);
+
+        void Deletar(Guid id);
+
+        List<Clinica> ListarTodos();
     }
 }

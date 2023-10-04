@@ -29,6 +29,13 @@ namespace HealthClinic_Senaimanha.Repositories
             _healthClinicContext.SaveChanges();
         }
 
+        public Comentario BuscarPorId(Guid id)
+        {
+            Comentario comentarioBuscado = _healthClinicContext.Comentario.FirstOrDefault(c => c.IdComentario == id)!;
+
+            return comentarioBuscado;
+        }
+
         public void Cadastrar(Comentario comentario)
         {
             _healthClinicContext.Comentario.Add(comentario);

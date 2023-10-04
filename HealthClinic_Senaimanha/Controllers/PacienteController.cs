@@ -18,6 +18,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastrar paciente
+        /// </summary>
+        /// <param name="paciente">paciente que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Paciente paciente)
         {
@@ -35,6 +40,10 @@ namespace HealthClinic_Senaimanha.Controllers
 
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar todos pacientes
+        /// </summary>
+        /// <returns>Lista com todos pacientes</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -49,6 +58,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar paciente por ID
+        /// </summary>
+        /// <param name="id">ID do pacienteque será listado</param>
+        /// <returns>Paciente que contém o ID buscado</returns>
         [HttpGet("{id}")]
         public IActionResult GetById (Guid id)
         {
@@ -63,6 +77,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar paciente por ID
+        /// </summary>
+        /// <param name="id">ID do paciente que será atualizado</param>
+        /// <param name="paciente">Paciente atualizado</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Guid id,Paciente paciente)
         {
@@ -79,6 +99,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar paciente por ID
+        /// </summary>
+        /// <param name="id">ID do paciente que será deletado</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {

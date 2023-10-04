@@ -14,5 +14,7 @@ namespace HealthClinic_Senaimanha.Interfaces
         void Deletar(Guid id);
 
         Usuario BuscarPorId(Guid id);
+
+        List<Usuario> ListarTodos();
     }
 }

@@ -18,6 +18,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _comentarioRepository = new ComentarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastro de comentário
+        /// </summary>
+        /// <param name="comentario">Comentário que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Comentario comentario)
         {
@@ -34,6 +39,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar comentário por ID
+        /// </summary>
+        /// <param name="comentario">Comentário atualizado</param>
+        /// <param name="id">ID do comentário atualizado</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Comentario comentario, Guid id)
         {
@@ -50,6 +61,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar comentário por ID
+        /// </summary>
+        /// <param name="id">ID do comentário buscado</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
@@ -58,6 +74,25 @@ namespace HealthClinic_Senaimanha.Controllers
                 _comentarioRepository.Deletar(id);
 
                 return Ok("Comentario deletado com sucesso!");
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// EndPoint que aciona o método de listar comentário por ID
+        /// </summary>
+        /// <param name="id">ID do comentário buscado</param>
+        /// <returns>Comentário que contém o ID buscado</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                return Ok(_comentarioRepository.BuscarPorId(id));
             }
             catch (Exception error)
             {

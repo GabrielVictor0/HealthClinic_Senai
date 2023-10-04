@@ -18,6 +18,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _tipoDeUsuarioRepository = new TipoDeUsuarioRepository();  
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastrar tipo de usuario
+        /// </summary>
+        /// <param name="tipoDeUsuario">Tipo de usuario que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(TipoDeUsuario tipoDeUsuario)
         {

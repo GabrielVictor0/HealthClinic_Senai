@@ -18,6 +18,11 @@ namespace HealthClinic_Senaimanha.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de cadastro de médico
+        /// </summary>
+        /// <param name="medico">Médico que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Medico medico)
         {
@@ -34,6 +39,10 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de listar todos médicos
+        /// </summary>
+        /// <returns>Lista com todos médicos</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,6 +57,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+
+        /// <summary>
+        /// EndPoint que aciona o método de listar médico por ID
+        /// </summary>
+        /// <param name="id">ID do médico que será listado</param>
+        /// <returns>Médico que contém ID buscado</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -63,6 +78,12 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de atualizar método por ID
+        /// </summary>
+        /// <param name="medico">Médico atualizado</param>
+        /// <param name="id">ID do médico que será atualizado</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Put(Medico medico, Guid id)
         {
@@ -79,6 +100,11 @@ namespace HealthClinic_Senaimanha.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint que aciona o método de deletar médico por ID
+        /// </summary>
+        /// <param name="id">ID do médico que será deletado</param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
